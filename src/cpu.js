@@ -174,7 +174,7 @@ function CPU(bus, wm, next_tick_immediately)
 
     this.set_tsc(0, 0);
 
-    this.debug_init();
+    // this.debug_init();
 
     if(DEBUG)
     {
@@ -902,7 +902,7 @@ CPU.prototype.init = function(settings, device_bus)
 
     if(DEBUG)
     {
-        this.debug.init();
+        // this.debug.init();
     }
 };
 
@@ -1097,8 +1097,8 @@ CPU.prototype.load_multiboot = function(buffer)
         this.update_state_flags();
 
         dbg_log("Starting multiboot kernel at:", LOG_CPU);
-        this.debug.dump_state();
-        this.debug.dump_regs();
+        // this.debug.dump_state();
+        // this.debug.dump_regs();
 
         break;
     }
@@ -1258,7 +1258,7 @@ CPU.prototype.codegen_finalize = function(wasm_table_index, start, state_flags, 
     {
         if(DUMP_GENERATED_WASM && !this.seen_code[start])
         {
-            this.debug.dump_wasm(code);
+            // this.debug.dump_wasm(code);
 
             const DUMP_ASSEMBLY = false;
 
@@ -1281,7 +1281,7 @@ CPU.prototype.codegen_finalize = function(wasm_table_index, start, state_flags, 
                     buffer[i - start] = this.read8(i);
                 }
 
-                this.debug.dump_code(this.is_32[0] ? 1 : 0, buffer, start);
+                // this.debug.dump_code(this.is_32[0] ? 1 : 0, buffer, start);
             }
         }
 
@@ -1365,7 +1365,7 @@ CPU.prototype.log_uncompiled_code = function(start, end)
         }
 
         dbg_log("Uncompiled code:");
-        this.debug.dump_code(this.is_32[0] ? 1 : 0, buffer, start);
+        // this.debug.dump_code(this.is_32[0] ? 1 : 0, buffer, start);
     }
 };
 
@@ -1399,7 +1399,7 @@ CPU.prototype.dump_function_code = function(block_ptr, count)
         }
 
         dbg_log("---" + (is_entry_block ? " entry" : ""));
-        this.debug.dump_code(is_32 ? 1 : 0, buffer, start);
+        // this.debug.dump_code(is_32 ? 1 : 0, buffer, start);
     }
 };
 

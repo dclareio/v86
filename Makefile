@@ -51,7 +51,6 @@ CLOSURE_FLAGS=\
 		--jscomp_error globalThis\
 		--jscomp_error invalidCasts\
 		--jscomp_error misplacedTypeAnnotation\
-		--jscomp_error missingProperties\
 		--jscomp_error missingReturn\
 		--jscomp_error msgDescriptions\
 		--jscomp_error nonStandardJsDocs\
@@ -81,9 +80,10 @@ CORE_FILES=const.js config.js io.js main.js lib.js buffer.js ide.js pci.js flopp
 	   memory.js dma.js pit.js vga.js ps2.js pic.js rtc.js uart.js hpet.js \
 	   acpi.js apic.js ioapic.js \
 	   state.js ne2k.js sb16.js virtio.js bus.js log.js \
-	   cpu.js debug.js \
+	   cpu.js\
 	   elf.js kernel.js
-LIB_FILES=9p.js filesystem.js jor1k.js marshall.js utf8.js
+LIB_FILES=9p-filer.js jor1k.js marshall.js utf8.js
+# LIB_FILES=9p.js filesystem.js jor1k.js marshall.js utf8.js
 BROWSER_FILES=screen.js keyboard.js mouse.js speaker.js serial.js \
 	      network.js starter.js worker_bus.js dummy_screen.js \
 	      print_stats.js filestorage.js

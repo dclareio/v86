@@ -99,14 +99,14 @@ if(typeof process !== "undefined")
 {
     v86.prototype.yield = function(t, tick)
     {
-        if(t < 1)
-        {
-            global.setImmediate(tick => this.yield_callback(tick), tick);
-        }
-        else
-        {
+        // if(t < 1)
+        // {
+        //     global.setImmediate(tick => this.yield_callback(tick), tick);
+        // }
+        // else
+        // {
             setTimeout(tick => this.yield_callback(tick), t, tick);
-        }
+        // }
     };
 
     v86.prototype.register_yield = function() {};
@@ -207,11 +207,6 @@ v86.prototype.restore_state = function(state)
 
 if(typeof performance === "object" && performance.now)
 {
-    v86.microtick = performance.now.bind(performance);
-}
-else if(typeof require === "function")
-{
-    const { performance } = require("perf_hooks");
     v86.microtick = performance.now.bind(performance);
 }
 else if(typeof process === "object" && process.hrtime)
